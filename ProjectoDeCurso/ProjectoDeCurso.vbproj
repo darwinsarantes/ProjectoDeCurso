@@ -72,11 +72,23 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.vb">
+    <Compile Include="frmBienvenida.Designer.vb">
+      <DependentUpon>frmBienvenida.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBienvenida.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="frmInicioDeSesion.Designer.vb">
+      <DependentUpon>frmInicioDeSesion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInicioDeSesion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSQLConexion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSQLConexion.Designer.vb">
+      <DependentUpon>frmSQLConexion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -96,8 +108,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="frmBienvenida.resx">
+      <DependentUpon>frmBienvenida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInicioDeSesion.resx">
+      <DependentUpon>frmInicioDeSesion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSQLConexion.resx">
+      <DependentUpon>frmSQLConexion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
