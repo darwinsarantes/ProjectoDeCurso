@@ -91,6 +91,13 @@
       <DependentUpon>frmSQLConexion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\MDIPrincipal.Designer.vb">
+      <DependentUpon>MDIPrincipal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\MDIPrincipal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModuloDeTrabajo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -116,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmSQLConexion.resx">
       <DependentUpon>frmSQLConexion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MDIPrincipal.resx">
+      <DependentUpon>MDIPrincipal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
