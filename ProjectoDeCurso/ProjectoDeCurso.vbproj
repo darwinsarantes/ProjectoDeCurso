@@ -72,22 +72,22 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmBienvenida.Designer.vb">
+    <Compile Include="Formularios\frmBienvenida.Designer.vb">
       <DependentUpon>frmBienvenida.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmBienvenida.vb">
+    <Compile Include="Formularios\frmBienvenida.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicioDeSesion.Designer.vb">
+    <Compile Include="Formularios\frmInicioDeSesion.Designer.vb">
       <DependentUpon>frmInicioDeSesion.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmInicioDeSesion.vb">
+    <Compile Include="Formularios\frmInicioDeSesion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSQLConexion.vb">
+    <Compile Include="Formularios\frmSQLConexion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSQLConexion.Designer.vb">
+    <Compile Include="Formularios\frmSQLConexion.Designer.vb">
       <DependentUpon>frmSQLConexion.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -108,13 +108,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBienvenida.resx">
+    <EmbeddedResource Include="Formularios\frmBienvenida.resx">
       <DependentUpon>frmBienvenida.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInicioDeSesion.resx">
+    <EmbeddedResource Include="Formularios\frmInicioDeSesion.resx">
       <DependentUpon>frmInicioDeSesion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSQLConexion.resx">
+    <EmbeddedResource Include="Formularios\frmSQLConexion.resx">
       <DependentUpon>frmSQLConexion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -135,6 +135,10 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Origen XML\" />
+    <Folder Include="Reportes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
