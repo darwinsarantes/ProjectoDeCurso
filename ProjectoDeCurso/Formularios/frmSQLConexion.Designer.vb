@@ -23,13 +23,13 @@ Partial Class frmSQLConexion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextServidor = New System.Windows.Forms.TextBox()
-        Me.textUsuario = New System.Windows.Forms.TextBox()
+        Me.txtServidor = New System.Windows.Forms.TextBox()
+        Me.txtUsuario = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtContrasena = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtBaseDeDatos = New System.Windows.Forms.TextBox()
         Me.btnTest = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.SuspendLayout()
@@ -44,21 +44,21 @@ Partial Class frmSQLConexion
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Servidor:"
         '
-        'TextServidor
+        'txtServidor
         '
-        Me.TextServidor.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextServidor.Location = New System.Drawing.Point(233, 29)
-        Me.TextServidor.Name = "TextServidor"
-        Me.TextServidor.Size = New System.Drawing.Size(439, 38)
-        Me.TextServidor.TabIndex = 1
+        Me.txtServidor.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtServidor.Location = New System.Drawing.Point(233, 29)
+        Me.txtServidor.Name = "txtServidor"
+        Me.txtServidor.Size = New System.Drawing.Size(439, 38)
+        Me.txtServidor.TabIndex = 1
         '
-        'textUsuario
+        'txtUsuario
         '
-        Me.textUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.textUsuario.Location = New System.Drawing.Point(233, 73)
-        Me.textUsuario.Name = "textUsuario"
-        Me.textUsuario.Size = New System.Drawing.Size(439, 38)
-        Me.textUsuario.TabIndex = 3
+        Me.txtUsuario.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsuario.Location = New System.Drawing.Point(233, 73)
+        Me.txtUsuario.Name = "txtUsuario"
+        Me.txtUsuario.Size = New System.Drawing.Size(439, 38)
+        Me.txtUsuario.TabIndex = 3
         '
         'Label2
         '
@@ -85,6 +85,7 @@ Partial Class frmSQLConexion
         Me.txtContrasena.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtContrasena.Location = New System.Drawing.Point(233, 117)
         Me.txtContrasena.Name = "txtContrasena"
+        Me.txtContrasena.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtContrasena.Size = New System.Drawing.Size(439, 38)
         Me.txtContrasena.TabIndex = 3
         '
@@ -98,13 +99,13 @@ Partial Class frmSQLConexion
         Me.Label4.TabIndex = 2
         Me.Label4.Text = "Base de Datos:"
         '
-        'TextBox1
+        'txtBaseDeDatos
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(233, 161)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(439, 38)
-        Me.TextBox1.TabIndex = 3
+        Me.txtBaseDeDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtBaseDeDatos.Location = New System.Drawing.Point(233, 161)
+        Me.txtBaseDeDatos.Name = "txtBaseDeDatos"
+        Me.txtBaseDeDatos.Size = New System.Drawing.Size(439, 38)
+        Me.txtBaseDeDatos.TabIndex = 3
         '
         'btnTest
         '
@@ -133,13 +134,13 @@ Partial Class frmSQLConexion
         Me.ClientSize = New System.Drawing.Size(711, 269)
         Me.Controls.Add(Me.btnCancelar)
         Me.Controls.Add(Me.btnTest)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtBaseDeDatos)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtContrasena)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.textUsuario)
+        Me.Controls.Add(Me.txtUsuario)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextServidor)
+        Me.Controls.Add(Me.txtServidor)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmSQLConexion"
         Me.Text = "Conexion a SQL"
@@ -149,13 +150,13 @@ Partial Class frmSQLConexion
     End Sub
 
     Friend WithEvents Label1 As Label
-    Friend WithEvents TextServidor As TextBox
-    Friend WithEvents textUsuario As TextBox
+    Friend WithEvents txtServidor As TextBox
+    Friend WithEvents txtUsuario As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents txtContrasena As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtBaseDeDatos As TextBox
     Friend WithEvents btnTest As Button
     Friend WithEvents btnCancelar As Button
 End Class

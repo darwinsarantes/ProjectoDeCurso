@@ -16,4 +16,18 @@
         Me.Close()
     End Sub
 
+    Private Sub frmInicioDeSesion_KeyDown(sender As Object, e As KeyEventArgs) Handles MyBase.KeyDown
+
+        If e.KeyCode = Keys.F2 Then
+
+            Dim ofrmSQLConexion As New frmSQLConexion()
+            ofrmSQLConexion.StartPosition = FormStartPosition.CenterScreen
+            ofrmSQLConexion.ShowDialog()
+
+            Me.Hide()
+
+
+        End If
+
+    End Sub
 End Class
