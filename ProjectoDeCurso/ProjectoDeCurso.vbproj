@@ -78,6 +78,12 @@
     <Compile Include="Formularios\frmBienvenida.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\frmBodega.Designer.vb">
+      <DependentUpon>frmBodega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmBodega.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\frmInicioDeSesion.Designer.vb">
       <DependentUpon>frmInicioDeSesion.vb</DependentUpon>
     </Compile>
@@ -117,6 +123,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Formularios\frmBienvenida.resx">
       <DependentUpon>frmBienvenida.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmBodega.resx">
+      <DependentUpon>frmBodega.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmInicioDeSesion.resx">
       <DependentUpon>frmInicioDeSesion.vb</DependentUpon>
