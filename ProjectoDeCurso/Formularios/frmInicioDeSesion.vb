@@ -20,12 +20,10 @@
 
         If e.KeyCode = Keys.F2 Then
 
+            Me.Hide()
             Dim ofrmSQLConexion As New frmSQLConexion()
             ofrmSQLConexion.StartPosition = FormStartPosition.CenterScreen
             ofrmSQLConexion.ShowDialog()
-
-            Me.Hide()
-
 
         End If
 
