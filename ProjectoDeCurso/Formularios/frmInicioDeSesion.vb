@@ -46,7 +46,7 @@ Public Class frmInicioDeSesion
             SQLConsulta = String.Format("Select CodigoUsusario, NombreUsuario, r.Nombre as 'Rol' " &
                                         " from Usuario as u " &
                                         " inner join Rol as r on r.CodigoRol = u.CodigoRol " &
-                                        " Where upper(trim( u.Login)) = '{0}' and Contrasena = '{1}'",
+                                        " Where upper(u.Login) = '{0}' and Contrasena = '{1}'",
                                         txtUsuario.Text.Trim().ToUpper(), txtContrasena.Text)
 
             ''una ves que tenemos la consulta devemos, asignarla al

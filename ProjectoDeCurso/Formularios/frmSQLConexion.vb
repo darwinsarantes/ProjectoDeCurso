@@ -37,7 +37,7 @@
     End Sub
 
     Private Function GenerarCadenaDeConexion() As String
-        Dim CadenaDeConexion As String = String.Format("Data Soucer='{0}';Initial Catalog='{1}';Persist Security Info=True;User ID= '{2}';Password='{3}'", txtServidor.Text.Trim(), txtBaseDeDatos.Text.Trim(), txtUsuario.Text.Trim(), txtContrasena.Text.Trim())
+        Dim CadenaDeConexion As String = String.Format("Data Source='{0}';Initial Catalog='{1}';Persist Security Info=True;User ID= '{2}';Password='{3}'", txtServidor.Text.Trim(), txtBaseDeDatos.Text.Trim(), txtUsuario.Text.Trim(), txtContrasena.Text.Trim())
         Return CadenaDeConexion
     End Function
 
@@ -85,4 +85,10 @@
     Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
         ConexionSQL()
     End Sub
+
+    Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
+        Me.Close()
+        frmInicioDeSesion.Show()
+    End Sub
+
 End Class

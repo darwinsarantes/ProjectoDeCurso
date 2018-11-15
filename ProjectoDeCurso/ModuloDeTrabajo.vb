@@ -20,7 +20,7 @@
     Public Function TraerCadenaDeConexion() As String
 
         Dim CadenaDeConexion As String
-        CadenaDeConexion = String.Format("Data Soucer='{0}';Initial Catalog='{1}';Persist Security Info=True;User ID= '{2}';Password='{3}'", My.Settings.Servidor, My.Settings.BaseDeDatos, My.Settings.Usuario, My.Settings.Contrasena)
+        CadenaDeConexion = String.Format("Data Source='{0}';Initial Catalog='{1}';Persist Security Info=True;User ID= '{2}';Password='{3}'", My.Settings.Servidor, My.Settings.BaseDeDatos, My.Settings.Usuario, My.Settings.Contrasena)
         Return CadenaDeConexion
 
     End Function
