@@ -2,6 +2,12 @@
 
 Public Class MDIPrincipal
 
+#Region "Variable globales"
+
+    Dim oFrmBodega As frmBodega
+
+#End Region
+
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripMenuItem.Click, NewToolStripButton.Click, NewWindowToolStripMenuItem.Click
         ' Create a new instance of the child form.
         Dim ChildForm As New System.Windows.Forms.Form
@@ -85,4 +91,17 @@ Public Class MDIPrincipal
 
     Private m_ChildFormNumber As Integer
 
+    Private Sub tsbBodega_Click(sender As Object, e As EventArgs) Handles tsbBodega.Click
+
+        If IsNothing(oFrmBodega) Then
+
+            oFrmBodega = New frmBodega
+            oFrmBodega.WindowState = FormWindowState.Maximized
+            oFrmBodega.StartPosition = FormStartPosition.CenterScreen
+            oFrmBodega.MdiParent = Me
+            oFrmBodega.Show()
+
+        End If
+
+    End Sub
 End Class
