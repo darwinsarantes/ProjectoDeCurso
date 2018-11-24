@@ -31,7 +31,7 @@ Public Class frmBodega
             Comando.CommandType = CommandType.Text
 
             ''voy a crear una consulta sencilla por el momento luego la modificaremos
-            Consultas = "Select * from bodega where CodigoBodega > 0 "
+            Consultas = String.Format("Select CodigoBodega, Nombre, Observacion, Descripcion from bodega where CodigoBodega > 0 {0}", WhereDinamico())
             Comando.CommandText = Consultas
 
             ''inicializaremos el adaptador para ejecutar la consutla dentro del comando...
@@ -65,6 +65,124 @@ Public Class frmBodega
 
     End Function
 
+    Private Function WhereDinamico() As String
+        Try
+            Dim Where As String = ""
+            If chkBodegaPrincipal.CheckState = CheckState.Checked And String.IsNullOrEmpty(txtFCodigoDeBodega.Text) = False And txtFCodigoDeBodega.Text.Trim.Length > 0 Then
+                Where &= String.Format(" and CodigoBodega = {0}", txtFCodigoDeBodega.Text.Trim)
+            End If
+
+            If chkNombre.CheckState = CheckState.Checked And String.IsNullOrEmpty(txtFNombre.Text) And txtFNombre.Text.Trim.Length > 0 Then
+                Where &= String.Format(" AND Nombre like '%{0}%'", txtFNombre.Text)
+            End If
+
+            If chkObservaciones.CheckState = CheckState.Checked And String.IsNullOrEmpty(txtFObservaciones.Text) = False And txtFObservaciones.Text.Trim.Length > 0 Then
+                Where &= String.Format(" and Observaciones Like '%{0}%'", txtFObservaciones.Text)
+            End If
+
+            Return Where
+
+        Catch ex As Exception
+            Return ""
+            MessageBox.Show(ex.Message, "Filtro de busqueda", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Function
+
+    Private Sub FormatearDGV()
+
+        Try
+            ''lo que vamos a realizar es un formateo del datagridview...
+            ''primero desactivaremos algunas operaciones.. que por defecto 
+            ''bienen activadas...
+            With dgvListar
+                ''desctivamos la opcion que nos permite agregar rows o filas...
+                .AllowUserToAddRows = False
+                ''desactivamos la opcion que nos permite quitar una fila o eliminarla
+                .AllowUserToDeleteRows = False
+                ''esta opcion nos permite redimencionar las filas...
+                .AllowUserToResizeRows = False
+                ''esta opcion nos permite colocar un tipo de fuente por defecto al datagridview y un tamano.
+                .DefaultCellStyle.Font = New Font("Segoe UI", 8)
+                ''para que todas las columnas tenga el mismo tipo de fuente
+                .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 8)
+                ''con esta opcion podemos poner un solo color al fondo del datagridview.
+                .DefaultCellStyle.SelectionBackColor = Color.LightSkyBlue
+                ''aplicamos fondo al datagridview, el anterior es para cuando se seleciona..
+                .BackgroundColor = System.Drawing.SystemColors.Window
+                ''aqui podemos poner el borde al datagridview.
+                .BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+                ''ponemos un tamano del header o encabezados en 25
+                .RowHeadersWidth = 25
+                ''con esta opcion nos permitimos poner todos los encabezados del datagridview en el centro.
+                .ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter
+                ''con esta opcion lo que pretendemos es seleccionar toda la fila..
+                .SelectionMode = DataGridViewSelectionMode.FullRowSelect
+                ''nos permite manejar el tab en el datadrigview.
+                .StandardTab = True
+                ''desactivamos la opcion de escritura en la celda..
+                .ReadOnly = False
+                ''aplicamos un estilo de borde tridimensional.
+                .CellBorderStyle = DataGridViewCellBorderStyle.Raised
+
+                Dim columnasacultar As String = ""
+                OcultarColumnasEnElDGV(columnasacultar, dgvListar)
+                FormatoDeColumnasDelDGV()
+
+            End With
+
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Formato del Data gridview", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+
+    End Sub
+
+    Private Sub FormatoDeColumnasDelDGV()
+
+        Try
+
+            ''para aplicar los formatos de colunas tenemos que identificar las columnas que mostraremos..
+            ''para mas o menos tener una nocion de utilidad de estas...
+            ''ejemplo..  CodigoBodega, Nombre, Observacion, Descripcion
+            With dgvListar
+                ''con esta instruccion tenemos acceso al nombre de la columna dentro del datagridview.
+                ''esto no permite cambiarle el nombre de manera visual entre otras coas..
+                .Columns("CodigoBodega").HeaderText = "Código"
+                .Columns("CodigoBodega").Width = "50" ''Podemos asignar un tamano a la celda.
+                .Columns("CodigoBodega").ReadOnly = True ''Podemos decidir si se escribe o no en la celda.
+                ''esta instruccion nos permite decidir la posicion del texto, centrado, izquier, derecha dentro del encabezado
+                .Columns("CodigoBodega").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+                ''esta indica la posicion dentro de la celda del texto.
+                .Columns("CodigoBodega").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+                ''esto mismo lo aplicaremos para cada una de las columnas...
+                ''presten atencion...
+
+                .Columns("Nombre").HeaderText = "Bodega"
+                .Columns("Nombre").Width = "160" ''Podemos asignar un tamano a la celda.
+                .Columns("Nombre").ReadOnly = True ''Podemos decidir si se escribe o no en la celda.
+                .Columns("Nombre").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+                .Columns("Nombre").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+
+                .Columns("Observacion").HeaderText = "Observación"
+                .Columns("Observacion").Width = "200" ''Podemos asignar un tamano a la celda.
+                .Columns("Observacion").ReadOnly = True ''Podemos decidir si se escribe o no en la celda.
+                .Columns("Observacion").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+                .Columns("Observacion").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+
+                .Columns("Descripcion").HeaderText = "Descripción"
+                .Columns("Descripcion").Width = "200" ''Podemos asignar un tamano a la celda.
+                .Columns("Descripcion").ReadOnly = True ''Podemos decidir si se escribe o no en la celda.
+                .Columns("Descripcion").HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
+                .Columns("Descripcion").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+
+            End With
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Formato de columnas del datagridview", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+
+    End Sub
+
     Private Sub LlenarListado()
 
         Try
@@ -72,6 +190,7 @@ Public Class frmBodega
             If ListadoDeRegistros() Then
 
                 dgvListar.DataSource = DTable
+                FormatearDGV()
 
             End If
 
